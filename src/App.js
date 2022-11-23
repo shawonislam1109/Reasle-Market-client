@@ -1,9 +1,18 @@
+import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import { route } from './Route/Route';
 
 function App() {
   return (
     <div className="">
-      <h1 className='text-3xl'>this is the productions secondHand market shop section</h1>
+      <RouterProvider
+        router={route}
+      ></RouterProvider>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </div>
   );
 }
