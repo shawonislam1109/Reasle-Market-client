@@ -1,0 +1,21 @@
+.background1 {
+    background-image: url(../../../../public/assets/hp.webp);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.background2 {
+    background-image: url(../../../../public/assets/Dell.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.background3 {
+    background-image: url(../../../../public/assets/apple.jpeg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}

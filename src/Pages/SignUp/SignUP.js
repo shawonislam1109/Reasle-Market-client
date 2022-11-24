@@ -96,10 +96,11 @@ const SignUP = () => {
                     </div>
                     <input className='w-full font-bold bg-orange-700 hover:bg-orange-900 cursor-pointer mt-2 text-white text-center p-3 rounded-lg' value='Sign Up' type="submit" />
                 </form>
-                <div onClick={googleSing} className="flex flex-col w-full border-opacity-50">
+
+                <div className="flex flex-col w-full border-opacity-50">
                     <p className='mt-3 text-orange-500 font-medium'>NIBEN R DIBEN ? <Link to='/login' className=' text-blue-600'>i have already account</Link></p>
                     <div className="divider">OR</div>
-                    <div className="grid py-4 cursor-pointer hover:bg-slate-400 hover:font-bold  card rounded-xl border-2 border-accent place-items-center">CONTINUE WITH GOOGLE</div>
+                    <div onClick={googleSing} className="grid py-4 cursor-pointer hover:bg-slate-400 hover:font-bold  card rounded-xl border-2 border-accent place-items-center">CONTINUE WITH GOOGLE</div>
                 </div>
             </div>
         </div>

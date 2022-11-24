@@ -35,7 +35,7 @@ const MainHome = () => {
                         <img src="https://previews.123rf.com/images/krustovin/krustovin2004/krustovin200400036/144441869-fast-online-shopping-or-e-commerce-logo-vector-design-illustration-ecommerce-online-store-logo-.jpg" alt="Shoes" className=" w-44 h-44 rounded-full" />
                     </figure>
                     <div className="card-body items-center text-center">
-                        <h2 className="card-title lg:text-3xl md:text-2xl font-semibold text-orange-500">Publish you Add </h2>
+                        <h2 className="card-title lg:text-3xl md:text-2xl font-semibold text-orange-500">PUBLISH YOU ADD  </h2>
                         <p className='text-xl text-muted'>Eiusmod tempor incidiunt labore velit dolore magna aliqu sed eniminim veniam quis nostrud exercition eullamco laborisaa</p>
                     </div>
                 </div>
