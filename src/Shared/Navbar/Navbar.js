@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import logo from './mainLogo-removebg-preview.png'
 const Navbar = () => {
+    const { user, LogOUt } = useContext(AuthContext)
+
+    const singOut = () => {
+        LogOUt()
+            .then()
+            .catch(error => console.log(error))
+    }
     const menuItem = <React.Fragment>
-        <li className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-1 border-0 rounded-md mr-2  text-white'><Link to='/'>Home</Link></li>
-        <li className=' hover:bg-violet-600 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-1 border-0 rounded-md mr-2  hover:text-white'><Link >My Odors</Link></li>
-        <li className=' hover:bg-violet-600 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-1 border-0 rounded-md mr-2  hover:text-white'><Link >My Add </Link></li>
+        <li className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-2  text-white'><Link to='/'>Home</Link></li>
+        <li className=' hover:bg-violet-600 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-2  hover:text-white'><Link >My Odors</Link></li>
+        <li className=' hover:bg-violet-600 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-2  hover:text-white'><Link >My Add </Link></li>
         <li className=' hover:bg-violet-600 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-1 border-0 rounded-md mr-2  hover:text-white'><Link >Dashboard</Link></li>
+        {user?.uid ? <>
+            <li onClick={singOut} className=' hover:bg-violet-600 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-1 border-0 rounded-md mr-2  hover:text-white'><Link to='/login' >Logout</Link></li>
+        </>
+            :
+            <>
+                <li className=' hover:bg-violet-600 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-1 border-0 rounded-md mr-2  hover:text-white'><Link  >Login</Link></li>
+            </>
+        }
+
     </React.Fragment>
     return (
         <div className="navbar lg:w-11/12 mx-auto  mb-5">
@@ -32,18 +49,17 @@ const Navbar = () => {
                     <p className=' text-orange-500 font-bold ml-2'>R <small className='text-black font-medium'>Diben</small></p>
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex ml-10">
+
+            <div className="navbar-end hidden lg:flex ml-10">
                 <ul className="menu menu-horizontal p-0  font-bold">
                     {
                         menuItem
                     }
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link className="btn">Get started</Link>
-            </div>
         </div>
     );
 };
+
 
 export default Navbar;
