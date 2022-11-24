@@ -3,7 +3,7 @@ import { FaLocationArrow } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const DetailsHP = ({ product }) => {
-    const { image, name, details, Price, location } = product;
+    const { image, name, details, Price, location, _id } = product;
     return (
         <div className="card card-compact py-5 bg-white shadow-xl">
             <figure className='relative'>
@@ -15,7 +15,7 @@ const DetailsHP = ({ product }) => {
                 <p className='text-xl'>{details ? details.slice(0, 100) + "...see more" : details}</p>
                 <p className='text-xl flex'> <FaLocationArrow></FaLocationArrow> <span className='text-slate-700'>{location}</span> </p>
                 <div className='text-end rounded-md'>
-                    <Link className='px-5 py-3 text-white font-bold rounded-md  bg-violet-600 hover:bg-violet-900'>Buy</Link>
+                    <Link to={`/product/allProduct/${_id}`} className='px-5 py-3 text-white font-bold rounded-md  bg-violet-600 hover:bg-violet-900'>Buy</Link>
                 </div>
             </div>
 

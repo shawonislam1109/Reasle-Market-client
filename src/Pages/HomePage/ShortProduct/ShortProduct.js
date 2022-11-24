@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import MapProduct from './MapProduct';
+import DetailsHP from '../../Products/HpLaptop/DetailsHP';
 
 const ShortProduct = () => {
     const { data: Products = [], } = useQuery({
@@ -16,10 +16,10 @@ const ShortProduct = () => {
         <div className='grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-5 w-9/12 mx-auto my-10 rounded-md'>
             {
                 Products && sliceProduct.map(product =>
-                    <MapProduct
+                    <DetailsHP
                         key={product._id}
                         product={product}
-                    />
+                    ></DetailsHP>
                 )
             }
 

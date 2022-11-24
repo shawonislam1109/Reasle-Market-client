@@ -1,0 +1,35 @@
+.backgroundDas1 {
+    background-image: url(../../../../public/assets/addtocart.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.backgroundDas2 {
+    background-image: url(../../../../public/assets/user.png);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.backgroundDas3 {
+    background-image: url(../../../../public/assets/admin.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.backgroundDas4 {
+    background-image: url(../../../../public/assets/Add.png);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.backgroundDas5 {
+    background-image: url(../../../../public/assets/MyADD.png);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    border-radius: 8px;
+}

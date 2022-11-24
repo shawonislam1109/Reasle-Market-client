@@ -13,7 +13,7 @@ const Navbar = () => {
     const menuItem = <React.Fragment>
         <li className='bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-2 p-1 px-2  text-white'><Link to='/'>Home</Link></li>
         <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link >My Ads</Link></li>
-        <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link >Dashboard</Link></li>
+        <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link to='/dashboard' >Dashboard</Link></li>
         <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link >Blog</Link></li>
         <li className=' hover:bg-violet-600  p-1 px-2  focus:text-blue-500  border-0 rounded-md mr-1  hover:text-white'><Link to='/product' >Product</Link></li>
         {user?.uid ? <>
