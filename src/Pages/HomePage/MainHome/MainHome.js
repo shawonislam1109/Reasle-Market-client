@@ -14,7 +14,7 @@ const MainHome = () => {
                     and buy and get bonus and see what's happening</p>
                 <ShortProduct />
                 <div className='text-center my-5 mb-10 rounded-md'>
-                    <Link className='px-8 py-5 text-white font-bold rounded-md  bg-violet-600'>View All Feature</Link>
+                    <Link to='/product/hp' className='px-8 py-5 text-white font-bold rounded-md  bg-violet-600 hover:bg-violet-900'>View All Feature</Link>
                 </div>
             </div>
             <Terminal />

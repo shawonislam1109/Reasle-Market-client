@@ -4,7 +4,7 @@ import MapProduct from './MapProduct';
 
 const ShortProduct = () => {
     const { data: Products = [], } = useQuery({
-        queryKey: [],
+        queryKey: ['allProducts'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/allProducts')
             const data = res.json();

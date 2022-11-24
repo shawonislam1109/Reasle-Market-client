@@ -35,15 +35,15 @@ export const route = createBrowserRouter([
         element: <MainSection></MainSection>,
         children: [
             {
-                path: '/hp',
-                element: <HpLaptop />
+                path: '/product/hp',
+                element: <HpLaptop />,
             },
             {
-                path: '/dell',
+                path: '/product/dell',
                 element: <DellLaptop />
             },
             {
-                path: '/apple',
+                path: '/product/apple',
                 element: <AppleLaptop />
             },
         ]

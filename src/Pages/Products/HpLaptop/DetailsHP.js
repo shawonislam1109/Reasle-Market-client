@@ -2,7 +2,7 @@ import React from 'react';
 import { FaLocationArrow } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const MapProduct = ({ product }) => {
+const DetailsHP = ({ product }) => {
     const { image, name, details, Price, location } = product;
     return (
         <div className="card card-compact py-5 bg-white shadow-xl">
@@ -23,4 +23,4 @@ const MapProduct = ({ product }) => {
     );
 };
 
-export default MapProduct;
+export default DetailsHP;
