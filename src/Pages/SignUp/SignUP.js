@@ -15,14 +15,31 @@ const SignUP = () => {
 
 
     const loginSubmit = (data) => {
-        console.log(data)
+
+        const currentUser = {
+            email: data.email,
+            user_role: data.user_role,
+            name: data.name
+
+        }
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 setError('')
                 updateUser(info)
                     .then(() => {
-                        navigate('/')
+                        fetch('http://localhost:5000/allUser', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(currentUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                                navigate('/')
+                            })
                     })
                     .catch(error => console.log(error))
                 console.log(user)
@@ -62,6 +79,17 @@ const SignUP = () => {
                         <input {...register("name",
                             { required: true }
                         )} type="text" placeholder="Your email" className="input input-bordered w-full max-w-xs" />
+                    </div>
+                    <div className="form-control w-full   max-w-xs">
+                        <label className="label">
+                            <span className="label-text font-bold text-orange-500">User Role</span>
+                        </label>
+                        <select {...register("user_role",
+                            { required: true }
+                        )} className="select select-bordered w-full max-w-xs">
+                            <option value="Buyer">Buyer</option>
+                            <option value="Seller">Seller</option>
+                        </select>
                     </div>
 
                     <div className="form-control w-full   max-w-xs">

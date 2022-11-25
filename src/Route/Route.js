@@ -1,5 +1,6 @@
 import Main from "../Layout/Main";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
+import MyOder from "../Pages/Dashboard/MyOder/MyOder";
 import MainHome from "../Pages/HomePage/MainHome/MainHome";
 import Login from "../Pages/LogIn/Login";
 import AddToCart from "../Pages/Products/AddtoCart/AddToCart.js";
@@ -58,11 +59,12 @@ export const route = createBrowserRouter([
     },
 
     {
-        path: '/dashboard',
+        path: '/product/dashboard',
         element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
             {
-
+                path: '/product/dashboard',
+                element: <MyOder />
             }
         ]
     }
