@@ -9,14 +9,14 @@ const DashboardNav = () => {
             </div>
 
             <div className='w-full text-red-600 text-2xl lg:text-3xl pt-10 hover:text-5xl duration-200 hover:text-orange-600 font-bold   text-center h-28 backgroundDas2 '>
-                <Link to='/dashboard/allUser'>All User</Link>
+                <Link to='/product/dashboard/allUser'>All User</Link>
             </div>
 
             <div className='w-full text-red-600 text-2xl lg:text-3xl pt-10 hover:text-5xl duration-200 hover:text-orange-600 font-bold  text-center h-28 backgroundDas3 '>
                 <Link to='/dashboard/admin'>Admin</Link>
             </div>
             <div className='w-full text-red-600 text-2xl lg:text-3xl pt-10 hover:text-5xl duration-200 hover:text-orange-600 font-bold  text-center h-28 backgroundDas4 '>
-                <Link to='/dashboard/admin'>My Add</Link>
+                <Link to='/product/dashboard/addProduct'>Add Product</Link>
             </div>
             <div className='w-full text-red-600 text-2xl lg:text-3xl pt-10 hover:text-5xl duration-200 hover:text-orange-600 font-bold  text-center h-28 backgroundDas5 '>
                 <Link to='/dashboard/admin'>My Add product</Link>

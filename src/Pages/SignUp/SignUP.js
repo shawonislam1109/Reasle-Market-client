@@ -36,9 +36,9 @@ const SignUP = () => {
                             body: JSON.stringify(currentUser)
                         })
                             .then(res => res.json())
-                            .then(data => {
-                                console.log(data)
-                                navigate('/')
+                            .then(result => {
+                                console.log(result)
+                                SingUserToken(data.email)
                             })
                     })
                     .catch(error => console.log(error))
@@ -55,13 +55,44 @@ const SignUP = () => {
         }
     }
 
+    const SingUserToken = (email) => {
+        fetch(`http://localhost:5000/jwt?email=${email}`,)
+            .then(res => res.json())
+            .then(data => {
+                if (data.accessToken) {
+                    console.log(data)
+                    localStorage.setItem('accessToken', data.accessToken)
+                    navigate('/')
+                }
+            })
+    }
+
 
     const googleSing = () => {
         GoogleSingIn(provider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
-                navigate('/')
+
+                const mediaUser = {
+                    email: user.email,
+                    name: user.displayName,
+                    user_role: 'Buyer'
+                }
+                fetch('http://localhost:5000/allUser', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(mediaUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        SingUserToken(user.email)
+                        navigate('/')
+                    })
+
+
             })
             .catch(error => console.log(error))
     }

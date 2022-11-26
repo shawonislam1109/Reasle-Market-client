@@ -1,41 +1,56 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
-const AddToCart = () => {
-    const SingleProduct = useLoaderData();
-    const { brand, name, Price, image, location, details, _id } = SingleProduct[0]
+const AddProduct = () => {
     const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
-
+    const imgHostKey = process.env.REACT_APP_imgbbKey;
+    const navigate = useNavigate();
 
     const AddToCartSubmit = (data) => {
-
-        fetch('http://localhost:5000/orderProduct', {
+        const image = (data.image[0])
+        const formData = new FormData();
+        formData.append('image', image)
+        const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
+        fetch(url, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+            body: formData
         })
             .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged) {
-                    console.log(data)
-                    navigate('/product')
-                    toast.success('Your item Added  Successfully')
+            .then(formData => {
+                // console.log(formData.data.url)
+                const AddProduct = {
+                    ...data,
+                    image: formData.data.url,
                 }
+                fetch('http://localhost:5000/allProducts', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(AddProduct)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.acknowledged) {
+                            console.log(data)
+                            navigate('/product')
+                            toast.success('Your item Added  Successfully')
+                        }
+                    })
+
             })
+
     }
     return (
         <div>
 
             <div className=' my-20 flex w-full   justify-center items-center'>
                 <div className=' p-9 mx-16 lg:mx-0 rounded-md shadow-2xl bg-violet-100 '>
-                    <h1 className='text-3xl text-center font-bold text-orange-500'>  </h1>
+                    <h1 className='text-3xl text-center font-bold text-orange-500'>ADD PRODUCT</h1>
                     <form onSubmit={handleSubmit(AddToCartSubmit)}>
                         <div className=" form-control w-full  ">
                             <div className='flex '>
@@ -68,7 +83,11 @@ const AddToCart = () => {
                                     <label className="label">
                                         <span className="text-xl font-bold text-orange-500">Brand</span>
                                     </label>
-                                    <input {...register("brand",)} defaultValue={brand} readOnly type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                    <select {...register("brand",)} type="text" className="input input-bordered w-full text-xl font-medium text-slate-500">
+                                        <option value='DELL'>DELL</option>
+                                        <option value='HP'>HP</option>
+                                        <option value='APPLE'>APPLE</option>
+                                    </select>
                                 </div>
 
                             </div>
@@ -76,16 +95,16 @@ const AddToCart = () => {
 
                                 <div className='mr-5'>
                                     <label className="label">
-                                        <span className="text-xl font-bold text-orange-500">Name</span>
+                                        <span className="text-xl font-bold text-orange-500">Name/processor</span>
                                     </label>
-                                    <input {...register("name",)} defaultValue={name} readOnly type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                    <input {...register("name",)} required type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
                                 </div>
 
                                 <div>
                                     <label className="label">
                                         <span className="text-xl font-bold text-orange-500">Price</span>
                                     </label>
-                                    <input {...register("Price",)} defaultValue={Price} readOnly type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                    <input {...register("Price",)} required type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
                                 </div>
 
                             </div>
@@ -95,14 +114,14 @@ const AddToCart = () => {
                                     <label className="label">
                                         <span className="text-xl font-bold text-orange-500">Image</span>
                                     </label>
-                                    <input {...register("image",)} defaultValue={image} readOnly type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                    <input {...register("image",)} required type="file" className="input input-bordered w-full text-xl font-medium text-slate-500" />
                                 </div>
 
                                 <div>
                                     <label className="label">
                                         <span className="text-xl font-bold text-orange-500">Location</span>
                                     </label>
-                                    <input {...register("location",)} defaultValue={location} readOnly type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                    <input {...register("location",)} required type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
                                 </div>
 
                             </div>
@@ -110,10 +129,35 @@ const AddToCart = () => {
 
                                 <div className='mr-5'>
                                     <label className="label">
-                                        <span className="text-xl font-bold text-orange-500">Product Id</span>
+                                        <span className="text-xl font-bold text-orange-500">Used Year</span>
                                     </label>
-                                    <input {...register("product_id",)} defaultValue={_id} readOnly type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                    <input {...register("used",)} required type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
                                 </div>
+
+                                <div>
+                                    <label className="label">
+                                        <span className="text-xl font-bold text-orange-500">Date</span>
+                                    </label>
+                                    <input {...register("date",)} required type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                </div>
+
+                            </div>
+                            <div className='flex '>
+
+                                <div className='mr-5'>
+                                    <label className="label">
+                                        <span className="text-xl font-bold text-orange-500">Previous Price</span>
+                                    </label>
+                                    <input {...register("previous_price",)} required type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                </div>
+
+                                <div>
+                                    <label className="label">
+                                        <span className="text-xl font-bold text-orange-500">My product </span>
+                                    </label>
+                                    <input {...register("my_product",)} required defaultValue="added" type="text" className="input input-bordered w-full text-xl font-medium text-slate-500" />
+                                </div>
+
                             </div>
 
                             <div >
@@ -123,7 +167,7 @@ const AddToCart = () => {
                                         <span className="text-xl font-bold text-orange-500">Details</span>
                                     </label>
 
-                                    <textarea {...register("Details",)} readOnly type="text" defaultValue={details} className="input input-bordered w-full h-24 text-xl font-medium text-slate-500" />
+                                    <textarea {...register("details",)} required className="input input-bordered w-full h-24 text-xl font-medium text-slate-500" />
 
                                 </div>
 
@@ -131,7 +175,7 @@ const AddToCart = () => {
 
                         </div>
 
-                        <input className='w-full mt-7 font-bold bg-orange-700 hover:bg-orange-900 cursor-pointer  text-white text-center p-3 rounded-lg' value='ADD TO CART' type="submit" />
+                        <input className='w-full mt-7 font-bold bg-orange-700 hover:bg-orange-900 cursor-pointer  text-white text-center p-3 rounded-lg' value='ADD PRODUCT' type="submit" />
                     </form>
                 </div>
             </div>
@@ -139,4 +183,4 @@ const AddToCart = () => {
     );
 };
 
-export default AddToCart;
+export default AddProduct;

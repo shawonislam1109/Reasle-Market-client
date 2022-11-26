@@ -1,4 +1,6 @@
 import Main from "../Layout/Main";
+import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
+import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
 import MyOder from "../Pages/Dashboard/MyOder/MyOder";
 import MainHome from "../Pages/HomePage/MainHome/MainHome";
@@ -65,6 +67,16 @@ export const route = createBrowserRouter([
             {
                 path: '/product/dashboard',
                 element: <MyOder />
+            }
+            ,
+            {
+                path: '/product/dashboard/addProduct',
+                element: <AddProduct />
+            }
+            ,
+            {
+                path: '/product/dashboard/allUser',
+                element: <AllUser />
             }
         ]
     }

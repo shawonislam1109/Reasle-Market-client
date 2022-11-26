@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
 import DetailsHP from '../HpLaptop/DetailsHP';
+
 
 const AppleLaptop = () => {
     const { data: CategoryData = [] } = useQuery({
@@ -11,6 +11,9 @@ const AppleLaptop = () => {
             return data
         }
     })
+
+
+
     return (
         <div className='w-9/12 mx-auto'>
             <h1 className='text-2xl lg:text-3xl font-bold text-center'><span className='text-orange-500'>APPLE</span> <span className='text-slate-700'>Laptop</span></h1>
@@ -22,6 +25,9 @@ const AppleLaptop = () => {
                         product={product}
                     ></DetailsHP>)
                 }
+                <div>
+
+                </div>
             </div>
         </div>
     );
