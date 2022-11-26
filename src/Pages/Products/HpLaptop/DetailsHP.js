@@ -3,18 +3,7 @@ import { Link } from 'react-router-dom';
 
 const DetailsHP = ({ product, setProduct }) => {
     const { image, name, details, Price, location, _id, previous_price, date, used, soled } = product;
-    // const soldHandleSubmit = (id) => {
-    //     fetch(`http://localhost:5000/allProducts/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //         })
-    // }
+
     return (
         <div className="card card-compact py-5 bg-white shadow-xl">
             <figure className='relative'>

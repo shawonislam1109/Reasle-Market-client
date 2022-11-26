@@ -3,6 +3,7 @@ import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
 import MyOder from "../Pages/Dashboard/MyOder/MyOder";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 import MainHome from "../Pages/HomePage/MainHome/MainHome";
 import Login from "../Pages/LogIn/Login";
 import AddToCart from "../Pages/Products/AddtoCart/AddToCart.js";
@@ -78,6 +79,13 @@ export const route = createBrowserRouter([
                 path: '/product/dashboard/allUser',
                 element: <AllUser />
             }
+            ,
+            {
+                path: '/product/dashboard/payment/:id',
+                element: <Payment />,
+                loader: ({ params }) => fetch(`http://localhost:5000/orderProducts/${params.id}`)
+            }
+
         ]
     }
 

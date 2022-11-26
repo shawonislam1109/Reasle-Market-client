@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import DeleteModal from './DeleteModal';
 
@@ -44,7 +45,8 @@ const MyOder = () => {
                     <tbody>
 
                         {
-                            MyOderData && MyOderData.map((order, i) => <tr>
+                            MyOderData && MyOderData.map((order, i) => <tr
+                                key={order._id}>
                                 <th>{i + 1}</th>
                                 <td>
                                     <div className="flex items-center">
@@ -64,7 +66,7 @@ const MyOder = () => {
                                 </td>
                                 <td className='md:font-bold'><span className='text-orange-600'>$</span> {order.Price}</td>
                                 <th>
-                                    <button className="btn md:font-bold btn-success md:btn-sm btn-xs">Pay</button>
+                                    <Link to={`/product/dashboard/payment/${order._id}`}><button className="btn md:font-bold btn-success md:btn-sm btn-xs">Pay</button></Link>
 
                                     <label onClick={() => setSateDelete(order)} htmlFor="delete-modal" className="btn md:font-bold mt-2 md:mt-0  block md:inline md:ml-3 btn-error btn-xs  md:btn-sm">Delete</label>
 
