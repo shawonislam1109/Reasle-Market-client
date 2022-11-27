@@ -15,7 +15,7 @@ const Navbar = () => {
         <li className=' hover:bg-violet-600  p-1 px-2  focus:text-blue-500  border-0 rounded-md mr-1  hover:text-white'><Link to='/product' >Product</Link></li>
         <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link >My Ads</Link></li>
         <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link to='/product/dashboard' >Dashboard</Link></li>
-        <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link >Blog</Link></li>
+        <li className=' hover:bg-violet-600 focus:bg-violet-700 p-1 px-2 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1  hover:text-white'><Link to='/blog'>Blog</Link></li>
         {user?.uid ? <>
             <li onClick={singOut} className=' hover:bg-violet-600 p-1 px-2 focus:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300  border-0 rounded-md mr-1 hover:text-white'><Link to='/login' >Logout</Link></li>
         </>

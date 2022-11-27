@@ -8,6 +8,7 @@ import MainHome from "../Pages/HomePage/MainHome/MainHome";
 import Login from "../Pages/LogIn/Login";
 import AddToCart from "../Pages/Products/AddtoCart/AddToCart.js";
 import AppleLaptop from "../Pages/Products/AppleLaptop/AppleLaptop";
+import Blog from "../Pages/Products/Blog/Blog";
 import DellLaptop from "../Pages/Products/DellLaptop/DellLaptop";
 import HpLaptop from "../Pages/Products/HpLaptop/HpLaptop";
 import MainSection from "../Pages/Products/MainSection/MainSection";
@@ -34,6 +35,10 @@ export const route = createBrowserRouter([
                 path: '/signup',
                 element: <SignUP />
             },
+            {
+                path: '/blog',
+                element: <Blog />
+            }
 
         ]
     },
