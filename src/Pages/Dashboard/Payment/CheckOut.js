@@ -5,15 +5,28 @@ const CheckOut = ({ paymentData }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardSuccess, setCardSuccess] = useState('');
-    const [processing, setProcessing] = useState(false);
     const [cardTransactionId, setCardTransactionId] = useState('');
     const [paymentError, setPaymentError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
 
     const { Price, name, email, _id, product_id } = paymentData[0];
-    console.log(product_id)
 
-    const soldHandleSubmit = (id) => {
+
+    const PaidHandle = (id) => {
+        fetch(`http://localhost:5000/orderProducts/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('paidHandle', data)
+            })
+    }
+
+
+    const soldHandleSubmit = (id, paidId) => {
         fetch(`http://localhost:5000/allProducts/${id}`, {
             method: 'PUT',
             headers: {
@@ -23,6 +36,7 @@ const CheckOut = ({ paymentData }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                PaidHandle(paidId)
             })
     }
 
@@ -66,7 +80,7 @@ const CheckOut = ({ paymentData }) => {
             setPaymentError('')
         }
         setCardSuccess('')
-        setProcessing(true)
+
         const { paymentIntent, confirmError } = await stripe.confirmCardPayment(clientSecret,
             {
                 payment_method: {
@@ -105,7 +119,7 @@ const CheckOut = ({ paymentData }) => {
                     console.log(data);
                 })
         }
-        setProcessing(false)
+
     };
     return (
         <div>
@@ -126,7 +140,7 @@ const CheckOut = ({ paymentData }) => {
                         },
                     }}
                 />
-                <button onClick={() => soldHandleSubmit(product_id)} className='btn btn-success btn-sm mt-5 ' type="submit" disabled={!stripe || !clientSecret}>
+                <button onClick={() => soldHandleSubmit(product_id, _id)} className='btn btn-success btn-sm mt-5 ' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>

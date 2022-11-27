@@ -23,7 +23,7 @@ const MyOder = () => {
     })
 
     if (isLoading) {
-        return <button className="btn loading">loading</button>
+        return <div className='text-center'><button className="btn loading">loading</button></div>
     }
 
 
@@ -66,9 +66,19 @@ const MyOder = () => {
                                 </td>
                                 <td className='md:font-bold'><span className='text-orange-600'>$</span> {order.Price}</td>
                                 <th>
-                                    <Link to={`/product/dashboard/payment/${order._id}`}><button className="btn md:font-bold btn-success md:btn-sm btn-xs">Pay</button></Link>
+                                    {
+                                        order?.payment ?
+                                            <>
+                                                <button className=' disabled text-green-600 cursor-not-allowed'>paid</button>
+                                            </>
+                                            :
+                                            <>
+                                                <Link to={`/product/dashboard/payment/${order._id}`}><button className="btn md:font-bold btn-success md:btn-sm btn-xs">Pay</button></Link>
+                                            </>
+                                    }
 
-                                    <label onClick={() => setSateDelete(order)} htmlFor="delete-modal" className="btn md:font-bold mt-2 md:mt-0  block md:inline md:ml-3 btn-error btn-xs  md:btn-sm">Delete</label>
+
+                                    <label onClick={() => setSateDelete(order)} htmlFor="delete-modal" className="btn md:font-bold mt-2 md:mt-0  md:inline md:ml-3 btn-error btn-xs  md:btn-sm">Delete</label>
 
                                 </th>
                             </tr>
