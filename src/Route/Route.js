@@ -13,6 +13,7 @@ import Blog from "../Pages/Products/Blog/Blog";
 import DellLaptop from "../Pages/Products/DellLaptop/DellLaptop";
 import HpLaptop from "../Pages/Products/HpLaptop/HpLaptop";
 import MainSection from "../Pages/Products/MainSection/MainSection";
+import MyAddProduct from "../Pages/Products/MyAddProduct/MyAddProduct";
 import SignUP from "../Pages/SignUp/SignUP";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -93,6 +94,11 @@ export const route = createBrowserRouter([
                 path: '/product/dashboard/payment/:id',
                 element: <Payment />,
                 loader: ({ params }) => fetch(`http://localhost:5000/orderProducts/${params.id}`)
+            }
+            ,
+            {
+                path: '/product/dashboard/payment/myAddProduct',
+                element: <MyAddProduct />
             }
 
         ]

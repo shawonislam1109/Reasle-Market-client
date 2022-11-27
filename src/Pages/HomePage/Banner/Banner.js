@@ -11,7 +11,7 @@ const Banner = () => {
                 <p className='text-white lg:text-3xl md:text-2xl text-xl  text-center pt-3'>This web site is second hand buy and sale</p>
                 <div className='flex justify-center '>
                     <div className='text-center hover:bg-orange-700 mt-10 flex w-64 justify-center items-center bg-orange-500 p-4 text-white text-xl rounded-md'>
-                        <Link className=''>Let's go in website  </Link>
+                        <Link to='/product'>Let's go in website  </Link>
                         <FaArrowRight className='ml-3'></FaArrowRight>
                     </div>
                 </div>
