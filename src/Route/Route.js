@@ -4,6 +4,7 @@ import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout/DashboardLayout";
 import MyOder from "../Pages/Dashboard/MyOder/MyOder";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MainHome from "../Pages/HomePage/MainHome/MainHome";
 import Login from "../Pages/LogIn/Login";
 import AddToCart from "../Pages/Products/AddtoCart/AddToCart.js";
@@ -21,6 +22,7 @@ export const route = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -44,6 +46,7 @@ export const route = createBrowserRouter([
     },
     {
         path: '/product',
+        errorElement: <ErrorPage />,
         element: <PrivateRoute><MainSection></MainSection></PrivateRoute>,
         children: [
             {
@@ -68,6 +71,7 @@ export const route = createBrowserRouter([
 
     {
         path: '/product/dashboard',
+        errorElement: <ErrorPage />,
         element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
             {
