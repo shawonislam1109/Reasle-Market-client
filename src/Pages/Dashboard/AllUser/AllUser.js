@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 
 const AllUser = () => {
 
@@ -12,23 +13,27 @@ const AllUser = () => {
         }
     })
     if (isLoading) {
-        return <button className="btn loading">loading</button>
+        return <div className='text-center'><button className="btn loading">loading</button></div>
     }
     const AdminHandle = (id) => {
         fetch(`http://localhost:5000/allUsers/${id}`, {
-            method: 'PUT'
+            method: 'PUT',
+            headers: {
+                authorization: (`Bearer ${localStorage.getItem('accessToken')}`)
+            }
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
                     console.log(data)
+                    toast.success('Admin place success full')
                     refetch()
                 }
             })
     }
-    console.log(allUser);
     return (
-        <div className='md:w-2/3 mx-auto '>
+        <div className='md:w-2/3 mx-auto mb-10 '>
+            <h1 className='text-3xl font-bold mb-5 text-orange-500'>All User </h1>
             <div className="flex justify-center items-center w-52 mx-auto md:w-full">
                 <table className="table table-zebra md:w-full ">
 

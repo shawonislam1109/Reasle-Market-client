@@ -39,7 +39,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <Link className=" flex justify-center items-center normal-case text-xl">
+                <Link to='/' className=" flex justify-center items-center normal-case text-xl">
                     <img className='lg:w-32 md:24 w-16' src={logo} alt="" />
                     <span className='text-violet-500  md:text-2xl md:font-bold mr-2'>Niben</span>
                     <span className='flex justify-center items-center text-orange-500 md:text-3xl  md:font-bold'>R <small className='text-black md:font-medium ml-3'>Diben</small></span>

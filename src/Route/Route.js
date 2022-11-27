@@ -15,6 +15,7 @@ import HpLaptop from "../Pages/Products/HpLaptop/HpLaptop";
 import MainSection from "../Pages/Products/MainSection/MainSection";
 import MyAddProduct from "../Pages/Products/MyAddProduct/MyAddProduct";
 import SignUP from "../Pages/SignUp/SignUP";
+import AdminRoute from "../PrivateRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -87,7 +88,7 @@ export const route = createBrowserRouter([
             ,
             {
                 path: '/product/dashboard/allUser',
-                element: <AllUser />
+                element: <AdminRoute><AllUser /></AdminRoute>
             }
             ,
             {

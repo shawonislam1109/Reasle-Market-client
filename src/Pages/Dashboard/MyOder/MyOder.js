@@ -30,6 +30,7 @@ const MyOder = () => {
 
     return (
         <div className='lg:w-2/3 mx-auto '>
+            <h1 className='text-3xl font-bold mb-5 text-orange-500'>My Order Product</h1>
             <div className=" lg:w-full flex justify-center items-center mb-10">
                 <table className="table lg:w-full">
 
@@ -78,7 +79,7 @@ const MyOder = () => {
                                     }
 
 
-                                    <label onClick={() => setSateDelete(order)} htmlFor="delete-modal" className="btn md:font-bold mt-2 md:mt-0  md:inline md:ml-3 btn-error btn-xs  md:btn-sm">Delete</label>
+                                    <label onClick={() => setSateDelete(order)} htmlFor="delete-modal" className="btn md:font-bold mt-2 md:mt-0  md:ml-3 ml-2 btn-error btn-xs  md:btn-sm">Delete</label>
 
                                 </th>
                             </tr>
