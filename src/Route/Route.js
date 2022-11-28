@@ -6,6 +6,8 @@ import MyOder from "../Pages/Dashboard/MyOder/MyOder";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MainHome from "../Pages/HomePage/MainHome/MainHome";
+import PrivateSeller from "../Pages/Hook/PrivateSeller";
+import PrivateUser from "../Pages/Hook/PrivateUser";
 import Login from "../Pages/LogIn/Login";
 import AddToCart from "../Pages/Products/AddtoCart/AddToCart.js";
 import AppleLaptop from "../Pages/Products/AppleLaptop/AppleLaptop";
@@ -78,12 +80,12 @@ export const route = createBrowserRouter([
         children: [
             {
                 path: '/product/dashboard',
-                element: <MyOder />
+                element: <PrivateUser><MyOder /></PrivateUser>
             }
             ,
             {
                 path: '/product/dashboard/addProduct',
-                element: <AddProduct />
+                element: <PrivateSeller><AddProduct /></PrivateSeller>
             }
             ,
             {
@@ -99,7 +101,7 @@ export const route = createBrowserRouter([
             ,
             {
                 path: '/product/dashboard/payment/myAddProduct',
-                element: <MyAddProduct />
+                element: <PrivateSeller><MyAddProduct /></PrivateSeller>
             }
 
         ]
