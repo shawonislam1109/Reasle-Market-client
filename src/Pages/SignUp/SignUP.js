@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import image from './G.png'
 
 
 const SignUP = () => {
@@ -159,7 +160,7 @@ const SignUP = () => {
                 <div className="flex flex-col w-full border-opacity-50">
                     <p className='mt-3 text-orange-500 font-medium'>NIBEN R DIBEN ? <Link to='/login' className=' text-blue-600'>i have already account</Link></p>
                     <div className="divider">OR</div>
-                    <div onClick={googleSing} className="grid py-4 cursor-pointer hover:bg-slate-400 hover:font-bold  card rounded-xl border-2 border-accent place-items-center">CONTINUE WITH GOOGLE</div>
+                    <div onClick={googleSing} className="grid  py-4 cursor-pointer hover:bg-slate-400 hover:font-bold  card rounded-xl border-2 border-accent place-items-center font-semibold"> <img className='w-12 h-12 flex' src={image} alt="" /> CONTINUE WITH GOOGLE</div>
                 </div>
             </div>
         </div>
