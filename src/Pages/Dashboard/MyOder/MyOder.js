@@ -2,9 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import useTitle from '../../Hook/useTitle';
 import DeleteModal from './DeleteModal';
 
 const MyOder = () => {
+    useTitle('dashboard/my order')
     const [stateDelete, setSateDelete] = useState(null);
 
     const { user } = useContext(AuthContext);
@@ -12,7 +14,7 @@ const MyOder = () => {
     const { data: MyOderData = [], refetch, isLoading } = useQuery({
         queryKey: ['orderProducts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://resale-market-server-side.vercel.app/orderProducts?email=${user?.email}`, {
+            const res = await fetch(`http://localhost:5000/orderProducts?email=${user?.email}`, {
                 headers: {
                     authorization: (`Bearer ${localStorage.getItem('accessToken')}`)
                 }

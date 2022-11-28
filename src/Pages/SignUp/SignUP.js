@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useTitle from '../Hook/useTitle';
 import image from './G.png'
 
 
@@ -11,6 +12,7 @@ const SignUP = () => {
     const provider = new GoogleAuthProvider();
     const { createUser, updateUser, GoogleSingIn } = useContext(AuthContext);
     const [error, setError] = useState('');
+    useTitle('sign Up ')
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
 
@@ -29,7 +31,7 @@ const SignUP = () => {
                 setError('')
                 updateUser(info)
                     .then(() => {
-                        fetch('https://resale-market-server-side.vercel.app/allUser', {
+                        fetch('http://localhost:5000/allUser', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -57,7 +59,7 @@ const SignUP = () => {
     }
 
     const SingUserToken = (email) => {
-        fetch(`https://resale-market-server-side.vercel.app/jwt?email=${email}`,)
+        fetch(`http://localhost:5000/jwt?email=${email}`,)
             .then(res => res.json())
             .then(data => {
                 if (data.accessToken) {
@@ -79,7 +81,7 @@ const SignUP = () => {
                     name: user.displayName,
                     user_role: 'Buyer'
                 }
-                fetch('https://resale-market-server-side.vercel.app/allUser', {
+                fetch('http://localhost:5000/allUser', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

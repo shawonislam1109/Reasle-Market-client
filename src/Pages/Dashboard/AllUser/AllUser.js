@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../Hook/useTitle';
 
 const AllUser = () => {
+    useTitle('Dashboard/All user')
 
     const { data: allUser = [], refetch, isLoading } = useQuery({
         queryKey: ['allUsers'],
         queryFn: async () => {
-            const res = await fetch('https://resale-market-server-side.vercel.app/allUsers')
+            const res = await fetch('http://localhost:5000/allUsers')
             const data = res.json();
             return data
         }
@@ -16,7 +18,7 @@ const AllUser = () => {
         return <div className='text-center'><button className="btn loading">loading</button></div>
     }
     const AdminHandle = (id) => {
-        fetch(`https://resale-market-server-side.vercel.app/allUsers/${id}`, {
+        fetch(`http://localhost:5000/allUsers/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: (`Bearer ${localStorage.getItem('accessToken')}`)

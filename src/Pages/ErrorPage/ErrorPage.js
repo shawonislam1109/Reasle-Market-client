@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useTitle from '../Hook/useTitle';
 import errorPage from './404page.png'
 
 const ErrorPage = () => {
+    useTitle('Error page')
     return (
         <div>
             <div className='flex flex-col min-h-[700px] justify-center items-center'>

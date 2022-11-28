@@ -26,7 +26,7 @@ const AddProduct = () => {
                     ...data,
                     image: formData.data.url,
                 }
-                fetch('https://resale-market-server-side.vercel.app/allProducts', {
+                fetch('http://localhost:5000/allProducts', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
