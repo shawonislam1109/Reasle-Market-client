@@ -68,7 +68,7 @@ export const route = createBrowserRouter([
             {
                 path: '/product/allProduct/:id',
                 element: <AddToCart />,
-                loader: ({ params }) => fetch(`http://localhost:5000/allProducts/${params.id}`)
+                loader: ({ params }) => fetch(`https://resale-market-server-side.vercel.app/allProducts/${params.id}`)
             }
         ]
     },
@@ -96,7 +96,7 @@ export const route = createBrowserRouter([
             {
                 path: '/product/dashboard/payment/:id',
                 element: <Payment />,
-                loader: ({ params }) => fetch(`http://localhost:5000/orderProducts/${params.id}`)
+                loader: ({ params }) => fetch(`https://resale-market-server-side.vercel.app/orderProducts/${params.id}`)
             }
             ,
             {

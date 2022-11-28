@@ -3,7 +3,7 @@ import React from 'react';
 const DeleteModal = ({ stateDelete, setSateDelete, refetch }) => {
     console.log(stateDelete)
     const deleteHandle = (id) => {
-        fetch(`http://localhost:5000/orderProducts/${id}`, {
+        fetch(`https://resale-market-server-side.vercel.app/orderProducts/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

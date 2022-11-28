@@ -14,7 +14,7 @@ const MyOder = () => {
     const { data: MyOderData = [], refetch, isLoading } = useQuery({
         queryKey: ['orderProducts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orderProducts?email=${user?.email}`, {
+            const res = await fetch(`https://resale-market-server-side.vercel.app/orderProducts?email=${user?.email}`, {
                 headers: {
                     authorization: (`Bearer ${localStorage.getItem('accessToken')}`)
                 }

@@ -10,7 +10,7 @@ const MyAddProduct = () => {
     const { data: product = [], refetch, isLoading } = useQuery({
         queryKey: ['products', user.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products?email=${user.email}`, {
+            const res = await fetch(`https://resale-market-server-side.vercel.app/products?email=${user.email}`, {
                 headers: {
                     authorization: (`Bearer ${localStorage.getItem('accessToken')}`)
                 }
