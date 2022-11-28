@@ -29,7 +29,7 @@ const SignUP = () => {
                 setError('')
                 updateUser(info)
                     .then(() => {
-                        fetch('http://localhost:5000/allUser', {
+                        fetch('https://resale-market-server-side.vercel.app/allUser', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ const SignUP = () => {
     }
 
     const SingUserToken = (email) => {
-        fetch(`http://localhost:5000/jwt?email=${email}`,)
+        fetch(`https://resale-market-server-side.vercel.app/jwt?email=${email}`,)
             .then(res => res.json())
             .then(data => {
                 if (data.accessToken) {
@@ -79,7 +79,7 @@ const SignUP = () => {
                     name: user.displayName,
                     user_role: 'Buyer'
                 }
-                fetch('http://localhost:5000/allUser', {
+                fetch('https://resale-market-server-side.vercel.app/allUser', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

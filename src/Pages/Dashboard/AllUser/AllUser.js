@@ -7,7 +7,7 @@ const AllUser = () => {
     const { data: allUser = [], refetch, isLoading } = useQuery({
         queryKey: ['allUsers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allUsers')
+            const res = await fetch('https://resale-market-server-side.vercel.app/allUsers')
             const data = res.json();
             return data
         }
@@ -16,7 +16,7 @@ const AllUser = () => {
         return <div className='text-center'><button className="btn loading">loading</button></div>
     }
     const AdminHandle = (id) => {
-        fetch(`http://localhost:5000/allUsers/${id}`, {
+        fetch(`https://resale-market-server-side.vercel.app/allUsers/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: (`Bearer ${localStorage.getItem('accessToken')}`)

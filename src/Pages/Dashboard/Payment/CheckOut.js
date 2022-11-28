@@ -13,7 +13,7 @@ const CheckOut = ({ paymentData }) => {
 
 
     const PaidHandle = (id) => {
-        fetch(`http://localhost:5000/orderProducts/${id}`, {
+        fetch(`https://resale-market-server-side.vercel.app/orderProducts/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const CheckOut = ({ paymentData }) => {
 
 
     const soldHandleSubmit = (id, paidId) => {
-        fetch(`http://localhost:5000/allProducts/${id}`, {
+        fetch(`https://resale-market-server-side.vercel.app/allProducts/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ const CheckOut = ({ paymentData }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://resale-market-server-side.vercel.app/create-payment-intent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ Price }),
@@ -106,7 +106,7 @@ const CheckOut = ({ paymentData }) => {
             }
             setCardSuccess('Congrats ! your payment successfully')
             setCardTransactionId(paymentIntent.id)
-            fetch('http://localhost:5000/payment', {
+            fetch('https://resale-market-server-side.vercel.app/payment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

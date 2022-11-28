@@ -6,7 +6,7 @@ const DellLaptop = () => {
     const { data: CategoryData = [] } = useQuery({
         queryKey: ['HP'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allProduct?brand=DELL')
+            const res = await fetch('https://resale-market-server-side.vercel.app/allProduct?brand=DELL')
             const data = res.json();
             return data
         }

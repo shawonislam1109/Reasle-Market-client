@@ -14,7 +14,7 @@ const AddToCart = () => {
 
     const AddToCartSubmit = (data) => {
 
-        fetch('http://localhost:5000/orderProduct', {
+        fetch('https://resale-market-server-side.vercel.app/orderProduct', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

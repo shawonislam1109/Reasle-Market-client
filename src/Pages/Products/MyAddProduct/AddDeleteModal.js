@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddDeleteModal = ({ product, setDeleteProduct, refetch }) => {
     const productDelete = (id) => {
-        fetch(`http://localhost:5000/AddedProducts/${id}`, {
+        fetch(`https://resale-market-server-side.vercel.app/AddedProducts/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
