@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,7 +8,8 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { singIn } = useContext(AuthContext);
+    const { singIn, GoogleSingIn } = useContext(AuthContext);
+    const provider = new GoogleAuthProvider();
     const [loginError, setLoginError] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
@@ -40,6 +42,19 @@ const Login = () => {
                 }
             })
     }
+
+    const googleSing = () => {
+        GoogleSingIn(provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                userToken(user.email)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
 
 
     return (
@@ -80,6 +95,7 @@ const Login = () => {
                 <div className="flex flex-col w-full border-opacity-50">
                     <p className='mt-3 text-orange-500 font-medium'>NIBEN R DIBEN ? <Link to='/signup' className=' text-blue-600'>create new account</Link></p>
                     <div className="divider">OR</div>
+                    <div onClick={googleSing} className="grid py-4 cursor-pointer hover:bg-slate-400 hover:font-bold  card rounded-xl border-2 border-accent place-items-center">CONTINUE WITH GOOGLE</div>
 
                 </div>
             </div>
