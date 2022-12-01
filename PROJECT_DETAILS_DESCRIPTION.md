@@ -12,6 +12,6 @@
 
 ## Admin_Route
 
-## AdminEmail : <pk40@gmail.com>
+## AdminEmail : pk40@gmail.com
 
-## AminPassword : <!@#12AAaa>
+## AminPassword : !@#12AAaa
