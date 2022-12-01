@@ -10,5 +10,6 @@
 
 ## Admin email and password holo :
 
-email : pk40@gmail.com
-password : !@#12AAaa
+AdminRoutes
+AdminEmail : pk40@gmail.com
+AdminPassword : !@#12AAaa
